@@ -13,39 +13,77 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="path/to/font-awesome/css/font-awesome.min.css"
-    />
+    
     <link rel="stylesheet" href="./style.css" />
     <title>Cadencia</title>
   </head>
   <body>
     <header>
-      <p><img class="logo" src="image/logo_cadencia2.png" alt="" /></p>
       <nav class="navegacion">
-        <ul>
+        <input type="checkbox" id="menu-activo" />
+        <label for="menu-activo" class="boton-abrir-menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="28px"
+            viewBox="0 -960 960 960"
+            width="28px"
+            fill="#e8eaed"
+          >
+            <path
+              d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
+            />
+          </svg>
+        </label>
+        <label for="menu-activo" id="overlay"></label>
+        <div class="links-navbar">
+          <a href="index.html" class="icono-logo"
+          ><img class="logo" src="image/logo-cadencia.png" alt=""
+        /></a>
+          <label for="menu-activo" class="boton-cerrar-menu">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="38px"
+              viewBox="0 -960 960 960"
+              width="28px"
+              fill="#e8eaed"
+            >
+              <path
+                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+              />
+            </svg>
+          </label>
+          <ul>
+            <li>
+             
+            </li>
             <li><a href="index.html">INICIO</a></li>
             <li><a href="productos.html">PRODUCTOS</a></li>
             <li><a href="resenias.html">RESEÑAS</a></li>
             <li><a href="contacto.html">CONTACTO</a></li>
-        </ul>
-    </nav>
-      <div class="search-bar">
-        <input class="input_nav" type="text" placeholder="Buscar..." id="buscador" />
-        <button type="button" class="btn_buscador">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-        <button type="button" class="btn_carrito">
-            <i class="fa-solid fa-cart-shopping"></i>
-        </button>
-        <button type="button" class="btn_login">
-            <i class="fa-regular fa-user"></i>
-        </button>
-      </div>
+          </ul>
+
+          <div class="search-bar">
+            <input
+              class="input_nav"
+              type="text"
+              placeholder="Buscar..."
+              id="buscador"
+            />
+            <button type="button" class="btn_buscador">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <button type="button" class="btn_carrito">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+            <button type="button" class="btn_login">
+              <i class="fa-regular fa-user"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
     </header>
     <main class="main_contacto">
-      <section class="contacto">
+      <section class="seccion-contacto">
         <h2 class="titulo_resenia">Contacto</h2>
         <form action="https://formspree.io/f/mjkvweee" method="post" class="formulario_contacto">
           <label for="nombre">
@@ -68,7 +106,7 @@
     <footer>
        
         <div class="footer_container_left" >
-            <p class="cont_logo"><img class="logo_footer" src="image/logo_cadencia2.png" alt="" /></p>
+            <p class="cont_logo"><img class="logo_footer" src="image/logo-cadencia.png" alt="" /></p>
           <ul class="footer_link">
             <li><a href="#">INICIO</a></li>
             <li><a href="productos.html">PRODUCTOS</a></li>
@@ -81,7 +119,9 @@
             <p class="titulo_footer">Nuestro Local</p>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.0293043714814!2d-58.42927662514817!3d-34.57812505614551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb59af828ed8d%3A0x33e0ad6eaa180a0a!2sAv.%20Sta.%20Fe%20%26%20Av.%20Juan%20Bautista%20Justo%2C%20C1425%20Cdad.%20Aut%C3%B3noma%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1730508850798!5m2!1ses-419!2sar" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-      
+        <div class="derechos">
+          <p>&copy; 2024 Cadencia Store. Todos los derechos reservados.</p>
+        </div>
     </footer>
   </body>
 </html>
