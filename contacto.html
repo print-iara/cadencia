@@ -82,24 +82,29 @@
         </div>
       </nav>
     </header>
-    <main class="main_contacto">
+    <main class="main">
       <section class="seccion-contacto">
+        <div class="contenedor-imagen">
+          <img src="image/image-contact.PNG" alt="">
+        </div>
+        <div class="contenedor-formulario">
         <h2 class="titulo_resenia">Contacto</h2>
         <form action="https://formspree.io/f/mjkvweee" method="post" class="formulario_contacto">
           <label for="nombre">
-           Nombre
-            <input type="text" name="nombre" id="nombre">
+         
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
           <label for="email">
-           Email
-            <input type="email" name="email" id="email">
+       
+            <input type="email" name="email" id="email" placeholder="Email" required>
           </label>
           <label for="mensaje">
-           Mensaje
-            <textarea name="mensaje" id="mensaje"></textarea>
+       
+            <textarea name="mensaje" id="mensaje" placeholder="Dejá tu mensaje"></textarea>
           </label>
-        
-          <button type="submit" id="enviar">Enviar</button>
+          <div class="contenedor-boton">
+            <button type="submit" id="enviar">Enviar</button> </div>      
         </form>
+      </div>
       </section>
     </main>
 
