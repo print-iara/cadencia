@@ -449,6 +449,14 @@ tbody td {
 .icono-logo{
 width: 50px;
   }
+  .links-responsive li a {
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+    padding: 20px 30px;
+    justify-content: flex-start;
+    color: #fff;
+  }
 
 
 }
