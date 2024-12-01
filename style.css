@@ -41,10 +41,11 @@ nav {
   margin-right: auto;
 }
 
-.logo, .logo-2 {
+.logo,
+.logo-2 {
   width: 60px;
 }
-.logo-2{
+.logo-2 {
   display: none;
 }
 
@@ -432,7 +433,7 @@ tbody td {
 .contenedor-imagen {
   flex: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 }
 
@@ -450,10 +451,12 @@ tbody td {
   width: 200px;
 }
 
+/*------------------------------------ MEDIA QUERIES --------------------------------
+-----------------------------------------------------------------------------------------
+*/
+/*pantallas que miden menos de 926*/
+
 @media (max-width: 926px) {
-  html {
-    background-color: #ffd700;
-  }
   nav {
     justify-content: flex-start;
   }
@@ -509,24 +512,36 @@ tbody td {
     padding: 20px;
     display: none;
   }
-  .logo-2{
+  .logo-2 {
     display: flex;
     margin-top: 8px;
-   
   }
-
 
   .input_nav,
-  .btn_buscador,
-  .btn_carrito {
+  .btn_buscador
+  {
     display: none;
   }
-  .btn_login {
+
+
+  
+  .btn_login, .btn_carrito {
     padding: 20px 0 0 10px;
   }
   .btn_login::after {
     content: "LOGIN";
     color: var(--color-secundario);
+  }
+  .btn_carrito::after {
+    content: "Carrito";
+    color: var(--color-secundario);
+  }
+  .search-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 5%;
+    color: #fff;
   }
   /*Home*/
   .text-overlay {
@@ -535,31 +550,43 @@ tbody td {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 2rem;
- 
   }
 
   /*producto*/
   /*reseñas*/
+  .reviews-section {
+    display: grid;  grid-template-columns: repeat(2, 1fr);
+  
+  }
 
   /*contacto*/
+  .seccion-contacto {
+    max-width: 80%;
+  }
+
+  /*pantallas que miden menos de 768 ----------------------------------------------------
+  ---------------------------------------------------------------------------------------*/
+}
+@media (max-width: 768px) {
+  /*contacto*/
+  .contenedor-imagen img{
+    min-width: 250px;
+
+  }
+  .contenedor-imagen, .contenedor-formulario{
+   min-width: 250px;
+  }
+
 
 }
 
-@media (max-width: 450px) {
-  html {
-    background-color: #ff9500;
-  }
+ /*pantallas que miden menos de 480 ----------------------------------------------------
+  ---------------------------------------------------------------------------------------*/
+@media (max-width: 480px) {
 
   .footer_container_left,
   .footer_container_right {
     width: 100%;
-  }
-  .search-bar {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 5%;
-    color: #fff;
   }
   i .fa-solid {
     fill: #fff;
@@ -570,9 +597,11 @@ tbody td {
   }
   /*Home*/
   .text-overlay {
-
     font-size: 1.5rem;
- 
   }
-
+      /*reseñas*/
+      .reviews-section {
+        display: grid;  grid-template-columns: 1fr;
+      
+      }
 }
