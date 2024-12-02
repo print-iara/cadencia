@@ -450,6 +450,77 @@ tbody td {
 .footer_container_right iframe {
   width: 200px;
 }
+/*carrito*/
+.carrito {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 400px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  overflow-y: auto;
+  transition: right 0.3s ease-in-out;
+}
+
+.carrito.abierto {
+  right: 0;
+}
+
+.cerrar-carrito-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.cerrar-carrito-btn:hover {
+  background-color: #ff1a1a;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  text-align: left;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 12px;
+}
+
+#vaciar-carrito, #comprar-carrito {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+#vaciar-carrito:hover,  #comprar-carrito:hover {
+  background-color: #ff1a1a;
+}
+
+
+
 
 /*------------------------------------ MEDIA QUERIES --------------------------------
 -----------------------------------------------------------------------------------------

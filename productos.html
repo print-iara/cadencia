@@ -73,7 +73,7 @@
             <button type="button" class="btn_buscador">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-            <button type="button" class="btn_carrito">
+            <button type="button" class="btn_carrito" id="abrir-carrito">
               <i class="fa-solid fa-cart-shopping"></i>
             </button>
             <button type="button" class="btn_login">
@@ -88,6 +88,26 @@
       <section class="container_cards" id="container-cards">
         <!-- Cards de productos -->
       </section>
+      <div class="carrito" id="carrito">
+        <button id="cerrar-carrito" class="cerrar-carrito-btn">X</button>
+        <h3>Carrito de Compras</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
+              <th>Total</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="lista-carrito"></tbody>
+        </table>
+        <h3 id="total-compra">Total: $0</h3>
+        <button id="vaciar-carrito">Vaciar Carrito</button>
+        <button id="comprar-carrito">Comprar</button>
+      </div>
     </main>
    
 
