@@ -25,7 +25,7 @@ cerrarCarritoBtn.addEventListener("click", () => {
 async function obtenerProductos() {
   const respuesta = await fetch("https://fakestoreapi.com/products");
   const productos = await respuesta.json();
-  notificacionCarrito.innerHTML=0;
+  notificacionCarrito.innerHTML=carrito.length;
 
   productos.forEach((producto) => {
     const item = document.createElement("div");
@@ -73,7 +73,7 @@ const agregarProductoCarrito=(e)=>{
     });
   }
   actualizarCarrito();
-  localStorage.setItem('carrito', JSON.stringify(carrito));
+
   
 
 }
