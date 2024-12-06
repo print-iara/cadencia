@@ -18,6 +18,26 @@
     <title>Cadencia</title>
   </head>
   <body>
+    <div class="carrito" id="carrito">
+      <button id="cerrar-carrito" class="cerrar-carrito-btn">X</button>
+      <h3>Carrito de Compras</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="lista-carrito"></tbody>
+      </table>
+      <h3 id="total-compra">Total: $0</h3>
+      <button id="vaciar-carrito">Vaciar Carrito</button>
+      <button id="comprar-carrito">Comprar</button>
+    </div>
     <header>
      
       <nav class="navegacion">
@@ -75,6 +95,7 @@
             </button>
             <button type="button" class="btn_carrito" id="abrir-carrito">
               <i class="fa-solid fa-cart-shopping"></i>
+              <span id="notificacion-carrito"></span>
             </button>
             <button type="button" class="btn_login">
               <i class="fa-regular fa-user"></i>
@@ -83,31 +104,13 @@
         </div>
       </nav>
     </header>
+ 
     <main class="productos-main">
       <h2 class="titulo_resenia">Productos</h2>
       <section class="container_cards" id="container-cards">
         <!-- Cards de productos -->
       </section>
-      <div class="carrito" id="carrito">
-        <button id="cerrar-carrito" class="cerrar-carrito-btn">X</button>
-        <h3>Carrito de Compras</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Imagen</th>
-              <th>Nombre</th>
-              <th>Precio</th>
-              <th>Cantidad</th>
-              <th>Total</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody id="lista-carrito"></tbody>
-        </table>
-        <h3 id="total-compra">Total: $0</h3>
-        <button id="vaciar-carrito">Vaciar Carrito</button>
-        <button id="comprar-carrito">Comprar</button>
-      </div>
+    
     </main>
    
 

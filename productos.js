@@ -1,7 +1,9 @@
 const containerCards = document.getElementById("container-cards");
 const contenedorCarrito = document.getElementById("carrito-contenedor");
+const listaCarrito = document.getElementById("lista-carrito");
 const abrirCarrito = document.getElementById("abrir-carrito");
 const cerrarCarritoBtn = document.getElementById("cerrar-carrito");
+const notificacionCarrito=document.getElementById("notificacion-carrito");
 const carritoModal = document.getElementById("carrito");
 const vaciarCarritoBtn = document.getElementById("vaciar-carrito");
 const totalCompra = document.getElementById("total-compra");
@@ -20,6 +22,7 @@ cerrarCarritoBtn.addEventListener("click", () => {
 async function obtenerProductos() {
   const respuesta = await fetch("https://fakestoreapi.com/products");
   const productos = await respuesta.json();
+  notificacionCarrito.innerHTML=0;
 
   productos.forEach((producto) => {
     const item = document.createElement("div");
@@ -66,14 +69,95 @@ const agregarProductoCarrito=(e)=>{
       cantidad: 1,
     });
   }
+  actualizarCarrito();
   localStorage.setItem('carrito', JSON.stringify(carrito));
-  mostrar();
+  
 
 }
-const mostrar=()=>{
-  console.log("lista completa:")
-  carrito.forEach((item)=>{
-    console.log(`Producto: ${item.nombre} - Precio: $${item.precio}- cantidad: ${item.cantidad}`)
-  })
+
+
+
+
+
+
+// Actualizar carrito
+function actualizarCarrito() {
+  listaCarrito.innerHTML = "";
+  let total = 0;
+
+  carrito.forEach((producto) => {
+    const totalPorProducto = producto.precio * producto.cantidad;
+    total += totalPorProducto;
+
+    const fila = document.createElement("tr");
+    fila.innerHTML = `
+      <td><img src="${producto.imagen}" alt="${producto.nombre}" style="width:40px; height:40px;"></td>
+      <td>${producto.nombre}</td>
+      <td>$${producto.precio}</td>
+      <td>
+        <button class="btn-sumar" data-id="${producto.id}">+</button>
+        ${producto.cantidad}
+        <button class="btn-restar" data-id="${producto.id}">-</button>
+      </td>
+      <td>$${totalPorProducto}</td>
+      <td><button class="btn-eliminar" data-id="${producto.id}">X</button></td>
+    `;
+
+    listaCarrito.appendChild(fila);
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+  
+  });
+
+  totalCompra.textContent = `Total: $${total}`;
+
+  document.querySelectorAll(".btn-sumar").forEach((boton) => {
+    boton.addEventListener("click", sumarCantidad);
+  });
+
+  document.querySelectorAll(".btn-restar").forEach((boton) => {
+    boton.addEventListener("click", restarCantidad);
+  });
+
+  document.querySelectorAll(".btn-eliminar").forEach((boton) => {
+    boton.addEventListener("click", eliminarProducto);
+  });
+  notificacionCarrito.innerHTML = carrito.length;
 }
+
+function sumarCantidad(e) {
+  const id = e.target.getAttribute("data-id");
+  const producto = carrito.find((item) => item.id === id);
+  if (producto) {
+    producto.cantidad++;
+    actualizarCarrito();
+  }
+}
+
+function restarCantidad(e) {
+  const id = e.target.getAttribute("data-id");
+  const producto = carrito.find((item) => item.id === id);
+  if (producto) {
+    producto.cantidad--;
+    if (producto.cantidad === 0) {
+      carrito = carrito.filter((item) => item.id !== id);
+    }
+    actualizarCarrito();
+  }
+}
+
+function eliminarProducto(e) {
+  const id = e.target.getAttribute("data-id");
+  carrito = carrito.filter((item) => item.id !== id);
+  actualizarCarrito();
+}
+
+// Vaciar carrito
+vaciarCarritoBtn.addEventListener("click", () => {
+  carrito = [];
+  localStorage.setItem('carrito', JSON.stringify(carrito));
+  actualizarCarrito();
+
+});
+
+
 
