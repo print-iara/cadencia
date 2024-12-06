@@ -9,6 +9,9 @@ const vaciarCarritoBtn = document.getElementById("vaciar-carrito");
 const totalCompra = document.getElementById("total-compra");
 let carrito = [];
 
+
+
+
 // Abrir y cerrar carrito
 abrirCarrito.addEventListener("click", () => {
   carritoModal.classList.add("abierto");
@@ -38,7 +41,7 @@ async function obtenerProductos() {
       </div>
     `;
 
-    
+    localStorage.setItem("numeroCarrito", carrito.length);
     // console.log(` Producto=>\n ID: ${producto.id} \n Nombre: ${producto.title}\n Precio:$ ${producto.price}`)
     containerCards.appendChild(item);
   });
@@ -105,6 +108,7 @@ function actualizarCarrito() {
 
     listaCarrito.appendChild(fila);
     localStorage.setItem('carrito', JSON.stringify(carrito));
+    localStorage.setItem("numeroCarrito", carrito.length);
   
   });
 
