@@ -3,14 +3,11 @@ const contenedorCarrito = document.getElementById("carrito-contenedor");
 const listaCarrito = document.getElementById("lista-carrito");
 const abrirCarrito = document.getElementById("abrir-carrito");
 const cerrarCarritoBtn = document.getElementById("cerrar-carrito");
-const notificacionCarrito=document.getElementById("notificacion-carrito");
+const notificacionCarrito = document.getElementById("notificacion-carrito");
 const carritoModal = document.getElementById("carrito");
 const vaciarCarritoBtn = document.getElementById("vaciar-carrito");
 const totalCompra = document.getElementById("total-compra");
 let carrito = [];
-
-
-
 
 // Abrir y cerrar carrito
 abrirCarrito.addEventListener("click", () => {
@@ -21,11 +18,10 @@ cerrarCarritoBtn.addEventListener("click", () => {
   carritoModal.classList.remove("abierto");
 });
 
-
 async function obtenerProductos() {
   const respuesta = await fetch("https://fakestoreapi.com/products");
   const productos = await respuesta.json();
-  notificacionCarrito.innerHTML=carrito.length;
+  notificacionCarrito.innerHTML = localStorage.getItem("numeroCarrito");
 
   productos.forEach((producto) => {
     const item = document.createElement("div");
@@ -41,19 +37,17 @@ async function obtenerProductos() {
       </div>
     `;
 
-    localStorage.setItem("numeroCarrito", carrito.length);
     // console.log(` Producto=>\n ID: ${producto.id} \n Nombre: ${producto.title}\n Precio:$ ${producto.price}`)
     containerCards.appendChild(item);
   });
-  document.querySelectorAll(".btn_comprar").forEach((boton)=>{
-    boton.addEventListener("click", agregarProductoCarrito)
-  })
+  document.querySelectorAll(".btn_comprar").forEach((boton) => {
+    boton.addEventListener("click", agregarProductoCarrito);
+  });
 }
 obtenerProductos();
 
-
-const agregarProductoCarrito=(e)=>{
-  carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+const agregarProductoCarrito = (e) => {
+  carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   e.preventDefault();
   const id = e.target.dataset.id;
   const nombre = e.target.dataset.nombre;
@@ -73,15 +67,7 @@ const agregarProductoCarrito=(e)=>{
     });
   }
   actualizarCarrito();
-
-  
-
-}
-
-
-
-
-
+};
 
 // Actualizar carrito
 function actualizarCarrito() {
@@ -107,9 +93,6 @@ function actualizarCarrito() {
     `;
 
     listaCarrito.appendChild(fila);
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-    localStorage.setItem("numeroCarrito", carrito.length);
-  
   });
 
   totalCompra.textContent = `Total: $${total}`;
@@ -125,6 +108,8 @@ function actualizarCarrito() {
   document.querySelectorAll(".btn-eliminar").forEach((boton) => {
     boton.addEventListener("click", eliminarProducto);
   });
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  localStorage.setItem("numeroCarrito", carrito.length);
   notificacionCarrito.innerHTML = carrito.length;
 }
 
@@ -158,10 +143,6 @@ function eliminarProducto(e) {
 // Vaciar carrito
 vaciarCarritoBtn.addEventListener("click", () => {
   carrito = [];
-  localStorage.setItem('carrito', JSON.stringify(carrito));
+  localStorage.setItem("carrito", JSON.stringify(carrito));
   actualizarCarrito();
-
 });
-
-
-
